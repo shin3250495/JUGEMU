@@ -1,0 +1,98 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>勤怠管理＋深夜サンプル</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .box {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 5px;
+            width: 120px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>勤怠管理</h1>
+
+    <select id="userSelect">
+        <option value="Aさん">Aさん</option>
+        <option value="Bさん">Bさん</option>
+        <option value="Cさん">Cさん</option>
+    </select>
+
+    <h3>出勤者リスト</h3>
+    <ul id="workList"></ul>
+
+    <div class="box">
+        <label>今日の日付：</label>
+        <input id="today" type="text" readonly>
+    </div>
+
+    <div class="box">
+        <label>出勤：</label>
+        <input type="text" id="startTime" readonly>
+        <button onclick="setStart()">出勤</button>
+    </div>
+
+    <div class="box">
+        <label>退勤：</label>
+        <input type="text" id="endTime" readonly>
+        <button onclick="setEnd()">退勤</button>
+    </div>
+
+    <div class="box">
+        <label>稼働時間：</label><br>
+        <input id="workHours" type="number" readonly> 時間
+        <input id="workMinutes" type="number" readonly> 分
+    </div>
+
+    <hr>
+
+    <h2>勤務表</h2>
+    <label>月を選択：</label>
+    <input type="month" id="selectMonth">
+    <button onclick="showTable()">勤務表を見る</button>
+
+    <div id="tableArea"></div>
+
+    <hr>
+    <h3>サンプルデータ（深夜勤務5パターン）</h3>
+    <button onclick="loadNightSampleData()">深夜勤務5パターン投入</button>
+
+    <p id="status" style="color: green; font-weight: bold;"></p>
+
+    <script src="attendance.js"></script>
+</body>
+
+</html>
