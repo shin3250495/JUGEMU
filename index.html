@@ -2,95 +2,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>勤怠管理＋深夜サンプル</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        .box {
-            margin-bottom: 20px;
-        }
-
-        input {
-            padding: 5px;
-            width: 120px;
-        }
-
-        button {
-            padding: 5px 10px;
-            margin-left: 5px;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th,
-        td {
-            border: 1px solid #000;
-            padding: 5px 10px;
-            text-align: center;
-        }
-    </style>
+    <title>勤怠</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <h1>勤怠管理</h1>
-
-    <select id="userSelect">
-        <option value="Aさん">Aさん</option>
-        <option value="Bさん">Bさん</option>
-        <option value="Cさん">Cさん</option>
-    </select>
-
-    <h3>出勤者リスト</h3>
-    <ul id="workList"></ul>
+    <h1>勤怠</h1>
 
     <div class="box">
-        <label>今日の日付：</label>
-        <input id="today" type="text" readonly>
+        <label>ユーザー選択：</label>
+        <select id="userSelect">
+            <option value="--">--</option>
+            <option value="Aさん">Aさん</option>
+            <option value="Bさん">Bさん</option>
+            <option value="Cさん">Cさん</option>
+        </select>
+    </div>
+
+    <div class="box">
+        <label>日付を選択：</label>
+        <input type="date" id="today">
     </div>
 
     <div class="box">
         <label>出勤：</label>
         <input type="text" id="startTime" readonly>
-        <button onclick="setStart()">出勤</button>
+        <button id="startBtn" class="blueBtn" onclick="setStart()">出勤</button>
     </div>
 
     <div class="box">
         <label>退勤：</label>
         <input type="text" id="endTime" readonly>
-        <button onclick="setEnd()">退勤</button>
+        <button id="endBtn" class="redBtn" onclick="setEnd()">退勤</button>
     </div>
 
     <div class="box">
         <label>稼働時間：</label><br>
         <input id="workHours" type="number" readonly> 時間
         <input id="workMinutes" type="number" readonly> 分
+    </div><br><br>
+
+    
+    <h1>勤務表</h1>
+    <div class="box">
+        <button onclick="loadNightSampleData()">深夜勤務サンプル投入</button>
     </div>
-
-    <hr>
-
-    <h2>勤務表</h2>
     <label>月を選択：</label>
     <input type="month" id="selectMonth">
-    <button onclick="showTable()">勤務表を見る</button>
-
+    <button onclick="showTable()">表示</button>
     <div id="tableArea"></div>
 
-    <hr>
-    <h3>サンプルデータ（深夜勤務5パターン）</h3>
-    <button onclick="loadNightSampleData()">深夜勤務5パターン投入</button>
-
-    <p id="status" style="color: green; font-weight: bold;"></p>
+    <p id="status" class="statusText"></p>
 
     <script src="attendance.js"></script>
 </body>
