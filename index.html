@@ -1,0 +1,75 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>勤怠・給料計算</title>
+</head>
+
+<body>
+
+    <h1>勤怠・給料計算</h1>
+
+    <div>
+
+        <!-- 出勤・退勤 -->
+        <label>出勤時間</label><br>
+        <input type="text" id="startTime" readonly>
+        <button onclick="setStartTime()">出勤</button>
+        <br>
+
+        <label>退勤時間</label><br>
+        <input type="text" id="endTime" readonly>
+        <button onclick="setEndTime()">退勤</button>
+        <br>
+
+        <!-- 稼働時間 -->
+        <label>稼働時間</label><br>
+        <input id="workHours" type="number" placeholder>時間
+        <input id="workMinutes" type="number" placeholder>分
+        <br><br>
+
+        <!-- 時給 -->
+        <label>時給</label><br>
+        <input id="hourlyWage" type="number" placeholder="例：1500"><br><br>
+
+        <!-- ドリンク計算 -->
+        <label>ドリンク</label><br>
+        <label>100円:</label>
+        <input id="drink100" type="number" placeholder="杯数">杯<br>
+        <label>200円:</label>
+        <input id="drink200" type="number" placeholder="杯数">杯<br>
+        <label>300円:</label>
+        <input id="drink300" type="number" placeholder="杯数">杯<br>
+        <label>400円:</label>
+        <input id="drink400" type="number" placeholder="杯数">杯<br>
+        <label>500円:</label>
+        <input id="drink500" type="number" placeholder="杯数">杯<br><br>
+
+        <!-- 営業バック -->
+        <label>お会計金額</label><br>
+        <input id="salesAmount" type="number" placeholder="例：20000"><br>
+        <label>お会計金額の15%</label><br>
+        <input id="salesBack" type="number" readonly><br><br>
+
+        <!-- 引かれ物 -->
+        <label>引かれ物</label><br>
+        <label>旅行積立</label><br>
+        <input id="saving" type="number" placeholder="例：3000"><br>
+        <label>罰金</label><br>
+        <input id="penalty" type="number" placeholder="例：1000"><br><br>
+
+        <!-- 計算ボタン -->
+        <button id="calcButton">計算する</button><br><br>
+
+        <!-- 合計金額 -->
+        <label>合計金額</label><br>
+        <input id="totalAmount" type="number" readonly><br>
+
+    </div>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
